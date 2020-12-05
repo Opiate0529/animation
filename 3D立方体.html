@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D立方体</title>
+	<style type="text/css">
+
+	html{
+		opacity: 0.8;
+		height: 100%;
+	}
+
+	.container{
+		margin-top: 200px;
+		perspective: 1000px;
+	}
+	
+	.cube{
+		height:200px;
+		width: 200px;
+		position: relative;
+		margin: auto;
+		transform-style: preserve-3d;
+		animation: rotate 15s infinite;
+	}
+
+	@keyframes rotate{
+     	from{
+        	transform:rotateY(0deg) rotateX(0deg);
+    	}
+    	to{
+        	transform: rotateY(360deg) rotateX(360deg);
+    	}
+	}
+
+	.cube>div{
+		height: 100%;
+		width: 100%;
+		opacity:0.9;
+		position: absolute;
+		text-align: center;
+
+		color: #fff;
+		line-height: 200px;
+		font-size: 30px;
+		border:1px solid #fff;
+	}
+
+	.plane-front{
+		transform: translateZ(100px);
+        background: #333;
+	}
+	.plane-back{
+		transform:translateZ(-100px);
+        background: rgb(235, 80, 80);
+	}
+	.plane-left{
+		transform:rotateY(90deg) translateZ(-100px);
+        background: rgb(231, 221, 76);
+	}
+	.plane-right{
+		transform:rotateY(90deg) translateZ(100px);
+        background: rgb(79, 238, 185);
+	}
+	.plane-top{
+		transform:rotateX(90deg) translateZ(100px);
+        background: rgb(157, 75, 196);
+	}
+	.plane-bottom{
+		transform:rotateX(90deg) translateZ(-100px);
+        background: rgb(61, 190, 71);
+	}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+
+		<div class="cube">
+
+			<div class="plane-front">前面</div>
+			<div class="plane-back">后面</div>
+			<div class="plane-left">左面</div>
+			<div class="plane-right">右面</div>
+			<div class="plane-top">上面</div>
+			<div class="plane-bottom">下面</div>
+		</div>	
+	</div>		
+</body>
+</html>
